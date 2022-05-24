@@ -13,7 +13,8 @@ syntax region zoiaEm1           start=/\v\*/ end=/\v\*/ contains=zoiaAlias,zoiaC
 syntax region zoiaEm2           start=/\v\*\*/ end=/\v\*\*/ contains=zoiaAlias,zoiaCommand,zoiaSpecialChars
 syntax region zoiaEm3           start=/\v\*\*\*/ end=/\v\*\*\*/ contains=zoiaAlias,zoiaCommand,zoiaSpecialChars
 
-syntax region zoiaDialogue      start=/\v"/ end=/\v"/ contains=zoiaAlias,zoiaCommand,zoiaSpecialChars,zoiaEm1,zoiaEm2,zoiaEm3
+syntax match zoiaDialogue       /\v"[^"]+"/ contains=zoiaAlias,zoiaCommand,zoiaSpecialChars,zoiaEm1,zoiaEm2,zoiaEm3
+syntax region zoiaDialogueML    start=/\v"""/ end=/\v"""/ contains=zoiaAlias,zoiaCommand,zoiaSpecialChars,zoiaEm1,zoiaEm2,zoiaEm3
 
 syntax keyword zoiaTodo         TODO FIXME XXX
 syntax match zoiaComment        /\v#.*$/ contains=zoiaTodo
@@ -39,6 +40,7 @@ highlight default link zoiaEm3              BoldItalics
 highlight BoldItalics cterm=bold,italic
 
 highlight default link zoiaDialogue         String
+highlight default link zoiaDialogueML       String
 
 highlight default link zoiaTodo             Todo
 highlight default link zoiaComment          Comment
