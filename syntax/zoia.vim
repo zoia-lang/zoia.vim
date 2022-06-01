@@ -5,7 +5,7 @@ syntax match zoiaHeaderKindOk   /\v(aliases|chapter|dictionary|fragment)/ contai
 syntax match zoiaHeaderKindErr  /\v(\[)@<=[^\]]+(\])@=(aliases|chapter|dictionary|fragment)@<!/ containedin=zoiaHeader contained
 
 syntax match zoiaAlias          /\v\@[^ \r\n@\\|[\];=*#]+/
-syntax match zoiaCommand        /\v\\(header)@![^ \r\n@\\|[\];=*#]+/
+syntax match zoiaCommand        /\v\\(header)@!(\\|[^ \r\n@\\|[\];=*#]+)/
 
 syntax match zoiaSpecialChars   /\v[|[\]=]/
 
